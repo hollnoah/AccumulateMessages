@@ -1,4 +1,7 @@
-
+'Noah Holloway
+'RCET 2265
+'Spring 2025
+'Accumulate Messages
 Imports System
 
 Module MessageProgram
@@ -9,8 +12,14 @@ Module MessageProgram
     End Sub
 
     Function UserMessages(ByVal newMessage As String, ByVal clear As Boolean) As String
-        'your code here
-        Return messages
+        Static message As New Text.StringBuilder
+        If clear Then
+            message.Clear()
+        ElseIf Not String.IsNullOrEmpty(newMessage) Then
+            message.AppendLine(newMessage)
+        End If
+
+        Return message.ToString
     End Function
 
 
